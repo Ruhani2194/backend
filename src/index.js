@@ -5,6 +5,7 @@
 
 import dotenv from "dotenv" 
 import connectDB from "./db/index.js";
+import {app} from "./app.js";
 
 //database always in other continent
 // 1. approach
@@ -38,4 +39,4 @@ connectDB()
 })
 .catch((err)=>{
 console.log("Mongo db connection failed!!!",err);
-});
+})
