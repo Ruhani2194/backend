@@ -6,18 +6,18 @@ import fs from "fs"//file system
         api_key: process.env.CLOUDINARY_API_KEY, 
         api_secret: process.env.CLOUDINARY_API_SECRET // Click 'View Credentials' below to copy your API secret
     });
-    const uploadoncloundinary=async (localfilepath)=>{
+    const uploadoncloundinary=async (localFilePath)=>{
         try{
-if(!localfilepath) return null
+if(!localFilePath) return null
 //upload file on cloudinary
-const response=await cloudinary.uploader.upload(localfilepath,{
+const response=await cloudinary.uploader.upload(localFilePath,{
     resource_type:"auto"
 })
 console.log("file is uploaded on cloudinary",response.url);
 return response;
         }
         catch(error){
-            fs.unlinkSync(localfilepath)//remove locally saved temporary file as the upload operation got failed
+            fs.unlinkSync(localFilePath)//remove locally saved temporary file as the upload operation got failed
             return null;
 
         }
